@@ -1,0 +1,275 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <!-- <meta http-equiv="X-UA-Compatible" content="IE=edge"> -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>TUDA</title>
+    <!-- Bootstrap -->
+    <link href="./Net_files/bootstrap-4.0.0.css" rel="stylesheet">
+</head>
+
+<body data-new-gr-c-s-check-loaded="14.1036.0" data-gr-ext-installed="">
+    <div id="page_container">
+        <header>
+            <div class="jumbotron">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-12">
+
+                            <h1 class="text-center"> Domain Adaptation for Underwater Image Enhancement</h1>
+                            <p class="text-center">&nbsp;</p>
+                            <h5 class="text-center">Zhengyong Wang<sup>1</sup>, Liquan Shen<sup>1</sup><sup>*</sup>, Mei Yu<sup>2</sup>,Kun Wang<sup>1</sup>, Yufei Lin<sup>1</sup>, Mai Xu<sup>3</sup></h5>
+                            <p class="text-center"><sup>1</sup>School of Communication and Information Engineering, Shanghai University</p>
+                            <p class="text-center"><sup>2</sup>School of Communication and Information Engineering, Ningbo University</p>
+                            <p class="text-center"><sup>3</sup>School of Electronic and information Engineering, Beihang Univeristy</p>
+			
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+        <section>
+
+
+            <div class="container">
+                <p>&nbsp;</p>
+                <div class="row">
+                    <div class="col-lg-12 col-md-12 col-sm-12 col-xl-12 text-center">
+                        <h2>Abstract</h2>
+                    </div>
+                </div>
+            </div>
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12 col-md-12 col-sm-12 text-center  offset-xl-0 col-xl-12">
+                        <p style="text-align:justify"><em>Recently, learning-based algorithms have shown impressive performance in underwater image enhancement. Most of them resort to training on synthetic data and achieve outstanding performance. However, these methods ignore the significant domain gap between the synthetic and real data (i.e., interdomain
+gap), and thus the models trained on synthetic data
+often fail to generalize well to real underwater scenarios. Furthermore,
+the complex and changeable underwater environment
+also causes a great distribution gap among the real data itself
+(i.e., intra-domain gap). However, almost no research focuses
+on this problem and thus their techniques often produce visually
+unpleasing artifacts and color distortions on various real
+images. Motivated by these observations, we propose a novel
+Two-phase Underwater Domain Adaptation network (TUDA) to
+simultaneously minimize the inter-domain and intra-domain gap.
+Concretely, a new dual-alignment network is designed in the
+first phase, including a translation part for enhancing realism of
+input images, followed by an enhancement part. With performing
+image-level and feature-level adaptation in two parts by jointly
+adversarial learning, the network can better build invariance
+across domains and thus bridge the inter-domain gap. In the
+second phase, we perform an easy-hard classification of real data
+according to the assessed quality of enhanced images, where a
+rank-based underwater quality assessment method is embedded.
+By leveraging implicit quality information learned from rankings,
+this method can more accurately assess the perceptual quality of
+enhanced images. Using pseudo labels from the easy part, an
+easy-hard adaptation technique is then conducted to effectively
+decrease the intra-domain gap between easy and hard samples.
+Extensive experimental results demonstrate that our TUDA is
+superior to existing works in terms of both visual quality and
+quantitative metrics. </em></p>
+                        <p class="text-left">&nbsp;</p>
+                        <h5 class="text-center">
+                            <a href="https://arxiv.org/abs/2108.09650">[Paper]</a>
+                            <a href="https://github.com/Underwater-Lab/TUDA">[Code]</a>
+                            <a href="https://github.com/Underwater-Lab/TUDA">[Supplementary]</a>
+	            <a href="https://github.com/Underwater-Lab/TUDA">[DataSet]</a>
+                        </h5>
+                    </div>
+                </div>
+
+                <hr>
+                <div class="container">
+                    <p>&nbsp;</p>
+                    <div class="row">
+                        <div class="col-lg-12 col-md-12 col-sm-12 col-xl-12 text-center">
+                            <h2>Highlights</h2>
+                            <ol>
+                                <li>
+                                    <p class="text-left">We propose a novel two-phase underwater domain adaptation network, called TUDA, to simultaneously reduce the inter-domain and intra-domain gap, which successfully
+sheds new light on future direction for enhancing underwater images.
+                                    </p>
+                                </li>
+                                <li>
+                                    <p class="text-left">A novel dual-alignment architecture is designed in the
+inter-domain adaptation phase, which can effectively
+perform image-level and feature-level adaptations using
+jointly adversarial learning. Two alignment parts can
+improve each other, and the combination of them can
+better build invariance across domains and thus bridge
+the inter-domain gap..</p>
+                                </li>
+                                <li>
+                                    <p class="text-left">A rank-based underwater quality assessment method is
+developed in the intra-domain adaptation phase, which
+can effectively assess the perceptual quality of enhanced
+images with the help of learning to rank. From this
+method, we successfully perform an easy-hard classification
+and an easy/hard adaptation technique to significantly
+reduce the intra-domain gap.</p>
+                                </li>
+                            </ol>
+                        </div>
+                    </div>
+                </div>
+                <div class="container">
+
+                    <hr>
+                    <div class="row">
+                        <div class="col-lg-12 col-md-12 col-sm-12 col-xl-12 text-left">
+                            <h2>Overall Architecture </h2>
+                            <p>&nbsp;</p>
+                        </div>
+
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-12 col-md-12 col-sm-12 text-center col-xl-12"> <img src="./Net_files/images/Framework.png" width="900" alt="">
+                            <p>&nbsp;</p>
+                            <p class="text-left">Fig 1.  Illustration of our proposed TUDA, which consists of two phases, inter-domain adaptation and intra-domain adaptation.In the inter-domain adaptation phase, G<sub>inter</sub> can effectively reduce the distribution discrepancy between synthetic and real images using the image-level and feature-level discriminator D<sub>inter</sub><sup style="margin-left:-5px">img</sup> and D<sub>inter</sub><sup style="margin-left:-5px">feat</sup>. Details are introduced in Section lIl.In the intra-domain adaptation phase, a rank-based underwater image quality assessment method(IQA) is fist presented to separate all real data into easy and hard samples, where λ is the ratio of real-world images assigned into the easy samples. Then,using the trustworthy easy set with generaled precise pseudo labels, we can powerfully close the intra-domain gap between easy and hard samples with the help of G<sub>intra</sub>, D<sub>intra</sub><i><sup style="margin-left:-5px">img</sup> <i>and D<sub>intra</sub><sup style="margin-left:-5px"><i>img</i></sup>.</p>
+                            <p>&nbsp;</p>
+                            <p>&nbsp;</p>
+                        </div>
+                        <div class="col-lg-12 col-md-12 col-sm-12 text-center col-xl-12"> <img src="./Net_files/images/part1.png" width="900" alt="">
+                            <p>&nbsp;</p>
+                            <p class="text-left">Fig 2. Illustration of our dual-alignment network proposed in the inter-domain adaptation phase, trained on synthetic underwater image pairs and unpaired
+real images, which consists of an image translation part for enhancing realism of input images, followed by an image enhancement part. They are cooperatively
+performed image-level and feature-level alignments and trained end-to-end in an adversarial learning manner.</p>
+                            <p>&nbsp;</p>
+                            <p>&nbsp;</p>
+                        </div>
+						<div class="col-lg-12 col-md-12 col-sm-12 text-center col-xl-12"> <img src="./Net_files/images/part2.png" width="900" alt="">
+                            <p>&nbsp;</p>
+                            <p class="text-left">Fig 3. The proposed RUIQA consists of three stages, namely stage 1: build a real-world underwater ranking dataset based on their perceptual quality; stage
+2: train the Siamese architecture ResNet-50 using the ranking dataset; stage 3: perform a fine-tuning technique to predict the image quality score.</p>
+                            <p>&nbsp;</p>
+                            <p>&nbsp;</p>
+                        </div>
+						<div class="col-lg-12 col-md-12 col-sm-12 text-center col-xl-12"> <img src="./Net_files/images/test.png" width="900" alt="">
+						    <p>&nbsp;</p>
+						    <p class="text-left">Fig 4. An overview of our testing pipeline. The inter-domain enhancement part first takes real underwater images as input and outputs the corresponding
+inter-domain enhancement results. Then, our proposed rank-based IQA method evaluates the perceived quality of the enhancement result. When the score is
+less than the threshold, the corresponding raw image is regarded as a hard sample, and intra-domain enhancement is performed. When the score is greater
+than the threshold, the result is trustworthy and output directly.</p>
+						    <p>&nbsp;</p>
+						    <p>&nbsp;</p>
+						</div>
+                    </div>
+
+                    <hr>
+                    <div class="row">
+                        <div class="col-lg-12 col-md-12 col-sm-12 col-xl-12 text-left">
+                            <h2>Results </h2>
+                            <p>&nbsp;</p>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-12 col-md-12 col-sm-12 text-center col-xl-12"> <img src="./Net_files/images/result1.png" width="900" alt="">
+                            <p>&nbsp;</p>
+                            <p class="text-center">Fig. 5. Visual comparisons on challenging underwater images sampled from Test-R1000. From left to right are raw underwater images, and the results of
+Fusion-12 , Fusion-18 , HE-Prior , UIBLA , Water-Net , FUIE-GAN , UGAN and our proposed TUDA.</p>
+                            <p>&nbsp;</p>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-lg-12 col-md-12 col-sm-12 text-center col-xl-12"> <img src="./Net_files/images/result2.png" width="900" alt="">
+                            <p>&nbsp;</p>
+                            <p class="text-center">Fig 6. Visual comparisons on challenging underwater images sampled from SQUID. From left to right are raw underwater images, and the results of
+Fusion-12 , Fusion-18 , HE-Prior , UIBLA , Water-Net , FUIE-GAN , UGAN and our proposed TUDA.</p>
+                            <p>&nbsp;</p>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-lg-12 col-md-12 col-sm-12 text-center col-xl-12"> <img src="./Net_files/images/result3.png" width="900" alt="">
+                            <p>&nbsp;</p>
+                            <p class="text-center">Fig 7. Visual comparisons on challenging underwater images sampled from UIEB. From left to right are raw underwater images, and the results of
+Fusion-12 , Fusion-18 , HE-Prior , UIBLA , Water-Net , FUIE-GAN , UGAN and our proposed TUDA.</p>
+                            <p>&nbsp;</p>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-lg-12 col-md-12 col-sm-12 text-center col-xl-12"> <img src="./Net_files/images/result4.png" width="900" alt="">
+                            <p>&nbsp;</p>
+                            <p class="text-center">Fig 8. Visual comparisons on challenging underwater images sampled from EUVP. From left to right are raw underwater images, and the results of
+Fusion-12 , Fusion-18 , HE-Prior , UIBLA [, Water-Net , FUIE-GAN , UGAN and our proposed TUDA.</p>
+                            <p>&nbsp;</p>
+                        </div>
+                    </div>
+  
+                    <div class="row">
+                        <div class="col-lg-12 col-md-12 col-sm-12 text-center col-xl-12"> <img src="./Net_files/images/result5.png" width="900" alt="">
+                            <p>&nbsp;</p>
+                            <p class="text-center">Fig 9. Visual comparisons on challenging underwater images sampled from UFP-120. From left to right are raw underwater images, and the results of
+Fusion-12 , Fusion-18 , HE-Prior , UIBLA [, Water-Net , FUIE-GAN , UGAN and our proposed TUDA.</p>
+                            <p>&nbsp;</p>
+                        </div>
+                    </div>
+
+                    <hr>
+
+
+                    <!-- <div class="row">
+                        <div class="col-lg-12 mb-4 mt-2 text-left">
+                            <h2>Demo Video</h2>
+                        </div>
+                    </div>
+                    <div class="col-lg-12 col-md-12 col-sm-12 col-xl-12 text-center">
+                        <video controls="controls" width="900" height="576" jm_neat="1344787457">
+                            <source src="./Net_files/images/supplementary_video.mp4" type="video/mp4">
+                        </video>
+                        <p>&nbsp;</p>
+                    </div>
+                    <hr> -->
+
+
+
+                    <div class="row"> </div>
+                </div>
+                <div class="jumbotron">
+                    <div class="row">
+                        <div class="col-lg-12 col-md-12 col-sm-12 col-xl-12 text-left">
+                            <h2>Citation</h2>
+                            <br>
+
+                            <pre>@article{qi2022tuda,
+    title={Domain Adaptation for Underwater Image Enhancement},
+    author={Zhengyong Wang, Liquan Shen, Mei Yu,Kun Wang, Yufei Lin, Mai Xu},
+    journal={arXiv preprint arXiv:2108.09650},
+    year={2021}
+    }
+                            </pre>
+
+
+                        </div>
+                    </div>
+                    <!-- <div class="col-lg-12 col-md-12 col-sm-12 col-xl-12 text-left">
+
+                        <p><span style="color:#000000;font-family:&#39;Courier New&#39;;font-size:15px;">
+                                
+                            </span></p>
+                        <p>&nbsp;</p>
+                        <p>&nbsp;</p>
+                    </div> -->
+                </div>
+
+            </div>
+        </section>
+    </div>
+
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="./Net_files/jquery-3.2.1.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="./Net_files/popper.min.js"></script>
+    <script src="./Net_files/bootstrap-4.0.0.js"></script>
+
+
+</body>
+
+</html>
